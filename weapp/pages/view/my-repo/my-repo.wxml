@@ -1,0 +1,88 @@
+<view class="solids-bottom padding-xs flex align-center">
+  <view class="flex-sub text-center">
+    <view class="solid-bottom text-xxl padding">
+      <text class="text-black text-bold">我的发布</text>
+    </view>
+  </view>
+</view>
+
+<van-tabs active="{{ itemType }}" bind:change="onChange">
+
+  <van-tab title="交易">
+    <van-swipe-cell right-width="{{ 100 }}" left-width="{{ 100 }}" wx:for="{{goodsList}}" wx:key="*this">
+      <view slot="left" bindtap="deleteGoods" data-goodsInfo="{{item}}">删除</view>
+      <view slot="right" bindtap="deleteGoods" data-goodsInfo="{{item}}">删除</view>
+      <view class="cu-card article">
+        <view class="cu-item shadow">
+          <view class="title">
+            <view class="text-cut">{{item.name}}</view>
+          </view>
+          <view class="content">
+            <!-- <image src="https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg" mode="aspectFill"></image> -->
+            <view class="desc">
+              <view class="text" style="color: gray;"> {{item.description}}</view>
+            </view>
+          </view>
+          <view class="margin-top-sm flex justify-around">
+            <view class="text-gray text-df">{{item.create_time}}</view>
+          </view>
+          <view class="margin-top-sm flex justify-around">
+            <view class="text-red text-xl text-bold text-price">{{item.current_price}}</view>
+          </view>
+        </view>
+      </view>
+    </van-swipe-cell>
+  </van-tab>
+
+
+  <van-tab title="校园帖子">
+    <van-swipe-cell right-width="{{ 100 }}" left-width="{{ 100 }}" wx:for="{{posting}}" wx:key="*this">
+      <view slot="left" bindtap="deletePostings" data-postingInfo="{{item}}">删除</view>
+      <view slot="right" bindtap="deletePostings" data-postingInfo="{{item}}">删除</view>
+      <view class="cu-item shadow radius shadow-warp bg-white margin-top padding" hover-class=" radius shadow shadow-lg bg-black margin-top" hover-stay-time="2s">
+        <view class="title  flex justify-between">
+          <text class="text-black text-bold text-lg">{{item.title}}</text>
+          <!-- <view>
+      <view class="cu-tag bg-orange light sm round ">求助</view>
+      <view class="cu-tag bg-orange light sm round ">失物招领</view>
+    </view> -->
+        </view>
+        <view class="content padding">
+          <view class="desc">
+            <view class="text text-df" style="color: gray;">{{item.content}}</view>
+            <view class="margin-top-sm flex justify-between">
+              <view>
+                <view class="text-grey text-df">{{item.create_time}}</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </van-swipe-cell>
+  </van-tab>
+
+
+  <van-tab title="表白墙">
+    <van-swipe-cell wx:for="{{sayLoveList}}" wx:key="*this" right-width="{{ 100 }}" left-width="{{ 100 }}" wx:for="{{sayLoveList}}" wx:key="*this">
+      <view slot="left" bindtap="deleteSayLove" data-sayLoveInfo="{{item}}">删除</view>
+      <view slot="right" bindtap="deleteSayLove" data-sayLoveInfo="{{item}}">删除</view>
+      <view class="cu-card article 'no-card'" style="margin-top: 20rpx;" wx:key="index">
+        <view class="cu-item shadow">
+          <view class="title">
+            <view class="text-cut">{{item.title}}</view>
+          </view>
+          <view class="content">
+            <!-- <image src="https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg" mode="aspectFill"></image> -->
+            <view class="desc">
+              <view class="text" style="color: gray;">{{item.content}}</view>
+              <view>
+                <view class="cu-tag bg-red light sm round">快@Ta</view>
+                <view class="text-gray text-df text-right">{{item.create_time}}</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </van-swipe-cell>
+  </van-tab>
+</van-tabs>

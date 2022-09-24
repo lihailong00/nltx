@@ -1,0 +1,8 @@
+{
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "say-love-list": "/components/say-love-list/say-love-list",
+    "test-list": "/components/test-list/test-list",
+    "goods-list": "/components/goods-list/goods-list"
+  }
+}

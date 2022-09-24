@@ -1,0 +1,9 @@
+POST http://124.222.112.48:8849/psg/bypage
+Content-Type: application/json
+
+{
+  "currentPage": 1,
+  "pageSize": 10
+}
+
+###

@@ -1,0 +1,66 @@
+<van-notice-bar
+  left-icon="volume-o"
+  text="欢迎使用【南理校园】，小程序由计算机学院的三名同学共同开发。目前尚未成熟。欢迎向我们提出宝贵性建议，共建更好的【南理校园】。作者邮箱：208827435@qq.com"
+/>
+<!-- 轮播图 -->
+<swiper class="screen-swiper {{'square-dot'}}" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
+  <swiper-item>
+    <image src="../../../images/other/canlender.jpg"></image>
+  </swiper-item>
+  <swiper-item>
+    <image src="https://tse2-mm.cn.bing.net/th/id/OIP-C.epBzKa_pMzzTZrtSyO4e2gHaEw?w=245&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7"></image>
+  </swiper-item>
+  <swiper-item>
+    <image src="../../../images/other/headlogo.png"></image>
+  </swiper-item>
+  <swiper-item>
+    <image src="../../../images/other/moreinfo.png"></image>
+  </swiper-item>
+</swiper>
+
+<!-- 宫格导航 -->
+<van-grid>
+  <van-grid-item icon="qr" text="发布校园" bindtap="clickCreatePosting" />
+  <van-grid-item icon="hot-sale-o" text="发布交易" bindtap="clickCreateGoods" />
+  <van-grid-item icon="friends-o" text="发表白墙" bindtap="clickSayLove" />
+  <van-grid-item icon="send-gift-o" text="我的发布" bindtap="clickMyRepo" />
+  <!-- <van-grid-item icon="send-gift-o" text="测试" bindtap="handleTest" /> -->
+</van-grid>
+
+<!-- 表白墙案例 -->
+<view class="cu-card article 'no-card'" style="margin-top: 20rpx;" wx:key="index">
+  <view class="cu-item shadow">
+    <view class="title">
+      <view class="text-cut">表白墙使用简介</view>
+    </view>
+    <view class="content">
+      <view class="desc">
+        <view class="text" style="color: gray;">用户可在【首页】的【发表白墙】选项中发布表白墙。发布表白墙会隐藏用户名。表白墙暂时不支持上传图片功能。</view>
+        <view>
+          <view class="cu-tag bg-red light sm round">快@Ta</view>
+          <view class="text-gray text-df text-right">{{item.create_time}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+<!-- 表白墙信息流 -->
+<view class="cu-card article 'no-card'" wx:for="{{sayLoveList}}" style="margin-top: 20rpx;" wx:key="index">
+  <view class="cu-item shadow">
+    <view class="title">
+      <view class="text-cut">{{item.title}}</view>
+    </view>
+    <view class="content">
+      <!-- <image src="https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg" mode="aspectFill"></image> -->
+      <view class="desc">
+        <view class="text" style="color: gray;">{{item.content}}</view>
+        <view>
+          <view class="cu-tag bg-red light sm round">快@Ta</view>
+          <view class="text-gray text-df text-right">{{item.create_time}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

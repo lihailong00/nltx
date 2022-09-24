@@ -1,0 +1,16 @@
+<form bindsubmit="formSubmit">
+	<view class="cu-form-group">
+		<view class="title">标题</view>
+		<input name="title" placeholder="非必填项"></input>
+	</view>
+
+	<view class="cu-form-group align-start">
+		<textarea 
+      maxlength="-1" 
+      placeholder="分享新鲜事"
+      style="height: 600rpx"
+      name="content"
+    />
+	</view>
+  <van-button type="primary" size="large" formType="submit">发布</van-button>
+</form>

@@ -1,0 +1,81 @@
+<view bindtap="openUserProfile">
+  <i-card title="{{username}}" thumb="https://cdn.acwing.com/media/user/profile/photo/71909_lg_540fb3181c.jpg" full="{{true}}">
+    <view slot="content" class="flex justify-between">
+      <view>用户id：{{userId}}</view>
+      <view>访问量：100w</view>
+    </view>
+
+  </i-card>
+</view>
+
+<view class="cu-form-group margin-top">
+  <text class="cuIcon-pullup text-gray" bindtap="TradeGoodsPic"></text>
+  <view class="title margin-right flex align-center" bindtap="showModal" data-target="Modal">后续功能更新</view>
+  <view class="arrow margin-right flex align-center"></view>
+  <view class="cu-modal {{modalName=='Modal'?'show':''}}">
+    <view class="cu-dialog">
+      <view class="cu-bar bg-white justify-end">
+        <view class="content">更新</view>
+        <view class="action" bindtap="hideModal">
+          <text class="cuIcon-close text-red"></text>
+        </view>
+      </view>
+      <view class="padding-xl">
+        增加失物招领功能。
+      </view>
+    </view>
+  </view>
+</view>
+
+
+
+<view class="cu-form-group margin-top">
+  <text class="cuIcon-edit text-gray" bindtap="upDatePic"></text>
+  <view class="title margin-right flex align-center" bindtap="showModal" data-target="DialogModal1">让程序员小哥加功能</view>
+  <view class="arrow margin-right flex align-center"></view>
+</view>
+<view class="cu-modal {{modalName=='DialogModal1'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class="content">写下你希望添加的功能：</view>
+      <view class="action" bindtap="hideModal">
+        <text class="cuIcon-close text-red"></text>
+      </view>
+    </view>
+    <view class="padding-xl">
+      <input type="text" placeholder="请输入内容" auto-focus />
+    </view>
+    <view class="cu-bar bg-white justify-end">
+      <view class="action">
+        <button class="cu-btn line-red text-red" bindtap="hideModal">取消</button>
+        <button class="cu-btn bg-red margin-left" bindtap="submitAdvice">确定</button>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+<van-divider contentPosition="center">个人消息</van-divider>
+
+<view wx:for="{{homeMsg}}" class="padding cu-item shadow radius shadow-warp bg-white margin-top" hover-class=" radius shadow shadow-lg bg-black margin-top" hover-stay-time="2s" bindtap="MessageCard">
+  <van-swipe-cell right-width="{{ 100 }}" left-width="{{ 100 }}">
+    <view slot="left" bindtap="deleteMsg" data-msgInfo="{{item}}">删除</view>
+    <view class="title cu-bar">
+      <view class="text-black text-bold text-lg" bindtap="MessageSender">订单详情</view>
+      <view class="text-grey text-sm" bindtap="MessageTag">
+        <text class="cuIcon-noticefill text-gray" bindtap="MessageTag"></text>
+      </view>
+    </view>
+
+    <view class="margin-top-sm flex justify-between">
+      <view class="text-gray text-df flex flex-twice margin-left" bindtap="MessageContent">{{item.content}}
+      </view>
+      <view>
+        <!-- <button class="cu-btn round light line-red flex justify-center margin-left margin-right test-center" 
+        bindtap="ViewMessage">查看</button> -->
+        <view class="text-grey text-sm flex flex-sub padding-lr-xs padding" bindtap="MessageDate">{{item.create_time}}</view>
+      </view>
+    </view>
+    <view slot="right" bindtap="deleteMsg" data-msgInfo="{{item}}">删除</view>
+  </van-swipe-cell>
+</view>

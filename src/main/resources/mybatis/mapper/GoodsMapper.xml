@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lee.nltx.mapper.GoodsMapper">
+
+    <insert id="insertGoods">
+        insert into nltx_goods (name, description,
+                                <if test="original_price != null">
+                                    original_price,
+                                </if>
+                                current_price, contact, goods_type, create_time, user_id)
+        value (#{name}, #{description},
+        <if test="original_price != null">
+            #{originalPrice},
+        </if>
+            #{currentPrice}, #{contact}, #{goodsType}, #{createTime}, #{userId})
+    </insert>
+
+    <delete id="deleteGoodsById">
+        delete from nltx_goods where goods_id = #{goodsId}
+    </delete>
+
+    <delete id="deleteGoodsByGoodsId">
+        delete from nltx_goods where goods_id = #{goodsId}
+    </delete>
+
+    <select id="listGoodsByPage0" resultType="java.util.Map">
+        select nltx_goods.goods_id, nltx_goods.name,
+               nltx_goods.original_price, nltx_goods.current_price,
+               nltx_goods.description, nltx_goods.create_time,
+               nltx_user.username, nltx_user.user_id from nltx_goods, nltx_user
+        where nltx_goods.goods_type = #{goodsType}
+          and nltx_goods.user_id = nltx_user.user_id
+          and nltx_goods.name like CONCAT('%',#{keyword},'%')
+        <if test="sortType == 0">
+            order by goods_weight desc, create_time desc
+        </if>
+        <if test="sortType == 1">
+            order by goods_weight desc, current_price
+        </if>
+        limit ${(currentPage0 - 1) * pageSize}, #{pageSize}
+
+    </select>
+
+    <select id="listGoodsByPage1" resultType="java.util.Map">
+        select nltx_goods.goods_id, nltx_goods.name,
+               nltx_goods.original_price, nltx_goods.current_price,
+               nltx_goods.description, nltx_goods.create_time,
+               nltx_user.username, nltx_user.user_id from nltx_goods, nltx_user
+        where nltx_goods.goods_type = #{goodsType}
+          and nltx_goods.user_id = nltx_user.user_id
+          and nltx_goods.name like CONCAT('%',#{keyword},'%')
+        <if test="sortType == 0">
+            order by create_time desc
+        </if>
+        <if test="sortType == 1">
+            order by current_price
+        </if>
+        limit ${(currentPage1 - 1) * pageSize}, #{pageSize}
+    </select>
+
+    <select id="goodsIdCount" resultType="java.lang.Integer">
+        select count(*) from nltx_goods where goods_id = #{goodsId}
+    </select>
+    <select id="getGoodsAllInfoByGoodsId" resultType="java.util.Map">
+        select * from nltx_goods where goods_id = #{goodsId}
+    </select>
+    <select id="listGoodsByUserId" resultType="java.util.Map">
+        select name, current_price, description, create_time, goods_type, goods_id from nltx_goods where user_id = #{userId} order by create_time desc
+    </select>
+</mapper>

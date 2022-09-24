@@ -1,0 +1,42 @@
+<form bindsubmit="formSubmit">
+	<view class="cu-form-group">
+		<view class="title">商品名称</view>
+		<input name="name" placeholder="请输入商品名称"></input>
+	</view>
+
+  <view class="cu-form-group">
+		<view class="title">原价</view>
+		<input name="originalPrice" placeholder="非必填项" type="number"></input>
+	</view>
+
+  <view class="cu-form-group">
+		<view class="title">现价</view>
+		<input name="currentPrice" placeholder="请输入商品价格"></input>
+	</view>
+
+  <view class="cu-form-group">
+		<view class="title">联系方式</view>
+		<input name="contact" placeholder="您的联系方式(QQ/微信/手机号)"></input>
+	</view>
+
+	<view class="cu-form-group align-start">
+		<textarea 
+      maxlength="-1" 
+      bindinput="textareaBInput" 
+      placeholder="商品描述"
+      style="height: 200rpx"
+      name="description"
+    />
+	</view>
+
+  <view class="cu-form-group margin-top">
+    <view class="title">您的身份</view>
+    <picker bindchange="pickerChange" value="{{goodsType}}" range="{{picker}}">
+      <view class="picker">
+        {{goodsType?picker[goodsType]:'买家or卖家'}}
+      </view>
+    </picker>
+  </view>
+
+  <van-button type="primary" size="large" formType="submit">发布</van-button>
+</form>

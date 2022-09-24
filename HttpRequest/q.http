@@ -1,0 +1,11 @@
+POST http://124.222.112.48:8849/goods/creategoods
+Content-Type: application/json
+
+
+{
+  "currentPage": 1,
+  "pageSize": 10,
+  "keyword": "ko"
+}
+
+###

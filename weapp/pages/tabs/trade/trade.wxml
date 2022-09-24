@@ -1,0 +1,117 @@
+<van-search model:value="{{ keyword }}" placeholder="请输入搜索关键词" bind:search="onSearch" />
+<van-notice-bar
+  left-icon="volume-o"
+  text="这里是南理工跳蚤市场，欢迎大家出售自己多余的书籍等相关物品。"
+/>
+<van-dropdown-menu>
+  <van-dropdown-item value="{{ sortType }}" options="{{ option }}" bind:change="switchSortType" />
+</van-dropdown-menu>
+<van-tabs type="card" active="{{goodsType}}" bind:change="switchTabs">
+  <van-tab title="卖家发布">
+    <!-- 使用案例 -->
+    <van-swipe-cell right-width="{{ 100 }}" left-width="{{ 100 }}">
+      <view slot="left">联系Ta</view>
+      <view slot="right">联系Ta</view>
+      <view class="cu-card article">
+        <view class="cu-item shadow">
+          <view class="title">
+            <view class="text-cut">使用教程</view>
+          </view>
+          <view class="content">
+            <view class="">
+              <view class="text" style="color: gray;">如果您想【购买】，请停留在当前页面。您可自定义商品排序方式，并且支持【搜索】功能。左滑/右滑 即可拍下此件商品。之后系统会向您发送一条消息，里面保存了卖家的联系方式。您需要通过QQ，微信等方式和卖家交流。</view>
+            </view>
+          </view>
+          <view class="margin-top-sm flex justify-around">
+            <view class="text-bolder text-df">发布人：晓龙同学</view>
+            <view class="text-gray text-df">2022年10月14日</view>
+          </view>
+          <view class="margin-top-sm flex justify-around">
+            <view class="text-bolder text-df">左滑购买</view>
+            <view class="text-red text-xl text-bold text-price">0</view>
+          </view>
+        </view>
+      </view>
+
+    </van-swipe-cell>
+
+    <!-- 信息流 -->
+    <van-swipe-cell right-width="{{ 100 }}" left-width="{{ 100 }}" wx:for="{{goodsList0}}">
+      <view slot="left" bindtap="handleOrder" data-goodsInfo="{{item}}">联系Ta</view>
+      <view class="cu-card article">
+        <view class="cu-item shadow">
+          <view class="title">
+            <view class="text-cut">{{item.name}}</view>
+          </view>
+          <view class="content">
+            <!-- <image src="https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg" mode="aspectFill"></image> -->
+            <view class="desc">
+              <view class="text" style="color: gray;"> {{item.description}}</view>
+            </view>
+          </view>
+          <view class="margin-top-sm flex justify-around">
+            <view class="text-bolder text-df">发布人：{{item.username}}</view>
+            <view class="text-gray text-df">{{item.create_time}}</view>
+          </view>
+          <view class="margin-top-sm flex justify-around">
+            <view class="text-bolder text-df">左滑购买</view>
+            <view class="text-red text-xl text-bold text-price">{{item.current_price}}</view>
+          </view>
+        </view>
+      </view>
+      <view slot="right" bindtap="handleOrder" data-goodsInfo="{{item}}">联系Ta</view>
+    </van-swipe-cell>
+  </van-tab>
+  <van-tab title="买家悬赏">
+    <!-- 使用案例 -->
+    <van-swipe-cell right-width="{{ 100 }}" left-width="{{ 100 }}">
+      <view slot="left">联系Ta</view>
+      <view slot="right">联系Ta</view>
+      <view class="cu-card article">
+        <view class="cu-item shadow">
+          <view class="title">
+            <view class="text-cut">使用教程</view>
+          </view>
+          <view class="content">
+            <view class="">
+              <view class="text" style="color: gray;">如果您想【出售】，请停留在当前页面。您可自定义商品排序方式,并且支持【搜索】功能。。左滑/右滑 即可拍下此件商品。之后系统会向您发送一条消息，里面保存了卖家的联系方式。您需要通过QQ，微信等方式和卖家交流。</view>
+            </view>
+          </view>
+          <view class="margin-top-sm flex justify-around">
+            <view class="text-bolder text-df">发布人：晓龙同学</view>
+            <view class="text-gray text-df">2022年10月14日</view>
+          </view>
+          <view class="margin-top-sm flex justify-around">
+            <view class="text-bolder text-df">左滑购买</view>
+            <view class="text-red text-xl text-bold text-price">0</view>
+          </view>
+        </view>
+      </view>
+    </van-swipe-cell>
+    <van-swipe-cell right-width="{{ 100 }}" left-width="{{ 100 }}" wx:for="{{goodsList1}}">
+      <view slot="left" bindtap="handleOrder" data-goodsInfo="{{item}}">联系Ta</view>
+      <view class="cu-card article">
+        <view class="cu-item shadow">
+          <view class="title">
+            <view class="text-cut">{{item.name}}</view>
+          </view>
+          <view class="content">
+            <!-- <image src="https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg" mode="aspectFill"></image> -->
+            <view class="desc">
+              <view class="text" style="color: gray;"> {{item.description}}</view>
+            </view>
+          </view>
+          <view class="margin-top-sm flex justify-around">
+            <view class="text-bolder text-df">发布人：{{item.username}}</view>
+            <view class="text-gray text-df">{{item.create_time}}</view>
+          </view>
+          <view class="margin-top-sm flex justify-around">
+            <view class="text-bolder text-df">左滑购买</view>
+            <view class="text-red text-xl text-bold text-price">{{item.current_price}}</view>
+          </view>
+        </view>
+      </view>
+      <view slot="right" bindtap="handleOrder" data-goodsInfo="{{item}}">联系Ta</view>
+    </van-swipe-cell>
+  </van-tab>
+</van-tabs>

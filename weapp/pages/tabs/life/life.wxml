@@ -1,0 +1,51 @@
+<van-search model:value="{{ keyword }}" placeholder="请输入搜索关键词" bind:search="onSearch" />
+<van-notice-bar
+  left-icon="volume-o"
+  text="在【首页】的【发布校园】选项卡中可发布帖子。"
+/>
+<van-dropdown-menu>
+  <van-dropdown-item value="{{ value }}" options="{{ option }}" />
+</van-dropdown-menu>
+
+<view class="cu-item shadow radius shadow-warp bg-white margin-top padding" hover-class=" radius shadow shadow-lg bg-black margin-top" hover-stay-time="2s">
+  <view class="title  flex justify-between">
+    <text class="text-black text-bold text-lg">【校园帖子】使用教程</text>
+    <view>
+      <view class="cu-tag bg-orange light sm round ">使用教程</view>
+    </view>
+  </view>
+  <view class="content padding">
+    <view class="desc">
+      <view class="text text-df">此处是校园交流帖子，您可在这里发送各种消息，比如组队游玩，学业咨询等。您可通过【搜索】功能相关内容帖子。</view>
+      <view class="margin-top-sm flex justify-between">
+        <view class="text-grey text-df">{{item.username}}</view>
+        <view>
+          <view class="text-grey text-df">{{item.create_time}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+<!-- 信息流 -->
+<view wx:for="{{postingList}}" class="cu-item shadow radius shadow-warp bg-white margin-top padding" hover-class=" radius shadow shadow-lg bg-black margin-top" hover-stay-time="2s">
+  <view class="title  flex justify-between">
+    <text class="text-black text-bold text-lg">{{item.title}}</text>
+    <!-- <view>
+      <view class="cu-tag bg-orange light sm round ">求助</view>
+      <view class="cu-tag bg-orange light sm round ">失物招领</view>
+    </view> -->
+  </view>
+  <view class="content padding">
+    <view class="desc">
+      <view class="text text-df">{{item.content}}</view>
+      <view class="margin-top-sm flex justify-between">
+        <view class="text-grey text-df">{{item.username}}</view>
+        <view>
+          <view class="text-grey text-df">{{item.create_time}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,18 @@
+/**app.wxss**/
+@import "colorui/main.wxss";
+@import "colorui/icon.wxss";
+
+/* 滑动单元格样式 */
+.van-swipe-cell__left,
+.van-swipe-cell__right {
+  display: inline-block;
+  width: 100px;
+  font-size: 15px;
+  color: #fff;
+  text-align: center;
+  background-color: #f44;
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-pack: center;
+  -webkit-box-align: center;
+}

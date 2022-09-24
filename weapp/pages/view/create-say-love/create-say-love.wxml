@@ -1,0 +1,16 @@
+<form bindsubmit="formSubmit">
+	<view class="cu-form-group">
+		<input placeholder="请输入标题简介" name="title" />
+	</view>
+
+	<view class="cu-form-group align-start">
+		<textarea 
+      maxlength="-1" 
+      placeholder="个人简介+联系方式"
+      style="height: 200rpx"
+      name="content"
+    />
+	</view>
+
+  <van-button type="danger" size="large" formType="submit">发布</van-button>
+</form>

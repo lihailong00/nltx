@@ -1,0 +1,77 @@
+{
+  "pages": [
+    "pages/tabs/index/index",
+    "pages/tabs/trade/trade",
+    "components/say-love-list/say-love-list",
+    "pages/tabs/life/life",
+    "components/posting-list/posting-list",
+    "components/goods-list/goods-list",
+    "pages/tabs/home/home",
+    "pages/view/create-goods/create-goods",
+    "pages/view/create-posting/create-posting",
+    "pages/view/user-profile/user-profile",
+    "pages/view/create-say-love/create-say-love",
+    "pages/view/my-repo/my-repo"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "南理同学",
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": true
+  },
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "color": "#c6b9b9",
+    "selectedColor": "#fc5858",
+    "list": [
+      {
+        "pagePath": "pages/tabs/index/index",
+        "text": "首页",
+        "iconPath": "/images/tabbars/index.png",
+        "selectedIconPath": "/images/tabbars/index_selected.png"
+      },
+      {
+        "pagePath": "pages/tabs/trade/trade",
+        "text": "交易",
+        "iconPath": "/images/tabbars/trade.png",
+        "selectedIconPath": "/images/tabbars/trade_selected.png"
+      },
+      {
+        "pagePath": "pages/tabs/life/life",
+        "text": "校园",
+        "iconPath": "/images/tabbars/life.png",
+        "selectedIconPath": "/images/tabbars/life_selected.png"
+      },
+      {
+        "pagePath": "pages/tabs/home/home",
+        "text": "我的",
+        "iconPath": "/images/tabbars/home.png",
+        "selectedIconPath": "/images/tabbars/home_selected.png"
+      }
+    ]
+  },
+  "usingComponents": {
+    "van-button": "@vant/weapp/button/index",
+    "van-grid": "@vant/weapp/grid/index",
+    "van-grid-item": "@vant/weapp/grid-item/index",
+    "van-search": "@vant/weapp/search/index",
+    "van-tab": "@vant/weapp/tab/index",
+    "van-tabs": "@vant/weapp/tabs/index",
+    "van-dropdown-menu": "@vant/weapp/dropdown-menu/index",
+    "van-dropdown-item": "@vant/weapp/dropdown-item/index",
+    "van-card": "@vant/weapp/card/index",
+    "van-divider": "@vant/weapp/divider/index",
+    "van-radio": "@vant/weapp/radio/index",
+    "van-radio-group": "@vant/weapp/radio-group/index",
+    "van-cell": "@vant/weapp/cell/index",
+    "van-cell-group": "@vant/weapp/cell-group/index",
+    "van-row": "@vant/weapp/row/index",
+    "van-col": "@vant/weapp/col/index",
+    "van-swipe-cell": "@vant/weapp/swipe-cell/index",
+    "van-picker": "@vant/weapp/picker/index",
+    "van-image": "@vant/weapp/image/index",
+    "van-notice-bar": "@vant/weapp/notice-bar/index",
+    "i-card": "/iview/dist/card/index"
+  }
+}
